@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DoIt - Modern To-Do List</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="auth.css">
+</head>
+
+<body>
+    <!-- Theme Toggle -->
+    <div class="theme-toggle-container">
+        <button id="theme-toggle" class="btn btn-icon btn-outline" aria-label="Toggle dark mode">
+            <i class="fas fa-moon"></i>
+        </button>
+    </div>
+
+    <div class="auth-container">
+        <div class="glass-panel auth-panel">
+            <!-- Login Form -->
+            <div id="login-view" class="auth-view active">
+                <div class="auth-header">
+                    <h2>Welcome </h2>
+                    <p>Enter your details to access your tasks.</p>
+                </div>
+
+                <form id="login-form">
+                    <div class="form-group">
+                        <label class="form-label" for="email">Email</label>
+                        <input type="email" id="email" class="form-control" placeholder="hello@example.com" required>
+                    </div>
+                    <div class="form-group">
+                        <div class="flex-between">
+                            <label class="form-label" for="password">Password</label>
+                            <a href="#" class="forgot-link" onclick="switchView('forgot-view')">Forgot password?</a>
+                        </div>
+                        <input type="password" id="password" class="form-control" placeholder="••••••••" required>
+                    </div>
+
+                    <button type="button" class="btn btn-primary w-100" id="login-btn">
+                        Sign In
+                    </button>
+                </form>
+
+                <div class="divider">
+                    <span>or continue with</span>
+                </div>
+
+                <div class="social-login">
+                    <button class="btn btn-outline w-100" id="google-login-btn">
+                        <i class="fab fa-google"></i> Google
+                    </button>
+                    <button class="btn btn-outline w-100" onclick="alert('Github login not implemented in demo')">
+                        <i class="fab fa-github"></i> GitHub
+                    </button>
+                </div>
+
+                <p class="auth-footer">
+                    Don't have an account? <a href="#" onclick="switchView('signup-view')">Sign up</a>
+                </p>
+            </div>
+
+            <!-- Sign Up Form -->
+            <div id="signup-view" class="auth-view">
+                <div class="auth-header">
+                    <h2>Create an account</h2>
+                    <p>Start managing your tasks effectively.</p>
+                </div>
+
+                <form id="signup-form">
+                    <div class="form-group">
+                        <label class="form-label" for="new-name">Full Name</label>
+                        <input type="text" id="new-name" class="form-control" placeholder="John Doe" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" for="new-email">Email</label>
+                        <input type="email" id="new-email" class="form-control" placeholder="hello@example.com"
+                            required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" for="new-password">Password</label>
+                        <input type="password" id="new-password" class="form-control" placeholder="Create a password"
+                            required>
+                    </div>
+
+                    <button type="button" class="btn btn-primary w-100" id="signup-btn">
+                        Sign Up
+                    </button>
+                </form>
+
+                <p class="auth-footer">
+                    Already have an account? <a href="#" onclick="switchView('login-view')">Sign in</a>
+                </p>
+            </div>
+
+            <!-- Forgot Password Form -->
+            <div id="forgot-view" class="auth-view">
+                <div class="auth-header">
+                    <h2>Reset Password</h2>
+                    <p>Enter your email to receive a reset link.</p>
+                </div>
+
+                <form id="forgot-form">
+                    <div class="form-group">
+                        <label class="form-label" for="reset-email">Email</label>
+                        <input type="email" id="reset-email" class="form-control" placeholder="hello@example.com"
+                            required>
+                    </div>
+
+                    <button type="button" class="btn btn-primary w-100" onclick="switchView('login-view')">
+                        Send Reset Link
+                    </button>
+                </form>
+
+                <p class="auth-footer">
+                    Remember your password? <a href="#" onclick="switchView('login-view')">Back to login</a>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Background Decoration Bubbles -->
+    <div class="bg-shape shape-1"></div>
+    <div class="bg-shape shape-2"></div>
+    <div class="bg-shape shape-3"></div>
+
+    <script type="module" src="firebase-config.js"></script>
+    <script src="theme.js"></script>
+    <script type="module" src="auth.js"></script>
+</body>
+
+</html>

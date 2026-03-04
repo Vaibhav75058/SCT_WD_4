@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DoIt - Dashboard</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="app.css">
+    <link rel="stylesheet" href="settings.css">
+</head>
+
+<body>
+    <div class="app-layout">
+        <!-- Sidebar Navigation -->
+        <aside class="sidebar glass-panel">
+            <div class="sidebar-header">
+                <div class="logo">
+                    <i class="fas fa-check-square"></i>
+                    <span>DoIt</span>
+                </div>
+                <button class="mobile-menu-close btn btn-icon d-none">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+
+            <div class="user-profile">
+                <img src="https://ui-avatars.com/api/?name=John+Doe&background=random" alt="User Profile"
+                    class="avatar">
+                <div class="user-info">
+                    <h4>John Doe</h4>
+                    <p>Free Plan</p>
+                </div>
+            </div>
+
+            <nav class="sidebar-nav">
+                <ul class="nav-section">
+                    <li class="nav-item active" id="nav-dashboard-btn">
+                        <a href="#"><i class="fas fa-layer-group"></i> Dashboard</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#"><i class="fas fa-calendar-day"></i> Today</a>
+                        <span class="badge">3</span>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#"><i class="fas fa-calendar-alt"></i> Upcoming</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#"><i class="fas fa-check-circle"></i> Completed</a>
+                    </li>
+                </ul>
+
+                <h5 class="nav-title">CATEGORIES</h5>
+                <ul class="nav-section">
+                    <li class="nav-item">
+                        <a href="#"><span class="dot dot-blue"></span> Work</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#"><span class="dot dot-green"></span> Personal</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#"><span class="dot dot-purple"></span> Study</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#"><span class="dot dot-orange"></span> Fitness</a>
+                    </li>
+                </ul>
+
+                <h5 class="nav-title">VIEWS</h5>
+                <ul class="nav-section">
+                    <li class="nav-item active-view">
+                        <a href="#"><i class="fas fa-list"></i> List View</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#"><i class="fas fa-columns"></i> Kanban Board</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#"><i class="far fa-calendar"></i> Calendar</a>
+                    </li>
+                </ul>
+            </nav>
+
+            <div class="sidebar-footer">
+                <a href="#" class="nav-item" id="nav-settings-btn"><i class="fas fa-cog"></i> Settings</a>
+                <a href="index.html" class="nav-item log-out"><i class="fas fa-sign-out-alt"></i> Log Out</a>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Header -->
+            <header class="app-header glass-card">
+                <div class="header-left">
+                    <button id="mobile-menu-toggle" class="btn btn-icon d-none">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                    <div class="search-bar">
+                        <i class="fas fa-search"></i>
+                        <input type="text" placeholder="Search tasks, categories..." class="form-control">
+                    </div>
+                </div>
+
+                <div class="header-right">
+                    <button class="btn btn-icon btn-outline">
+                        <i class="far fa-bell"></i>
+                        <span class="notification-dot"></span>
+                    </button>
+                    <button id="theme-toggle" class="btn btn-icon btn-outline" aria-label="Toggle dark mode">
+                        <i class="fas fa-moon"></i>
+                    </button>
+                </div>
+            </header>
+
+            <!-- Dashboard Content -->
+            <div class="dashboard-content" id="dashboard-view">
+                <div class="content-header flex-between">
+                    <div>
+                        <h1>Hello, John! 👋</h1>
+                        <p class="text-secondary">You have 3 tasks to complete today.</p>
+                    </div>
+
+                    <div class="view-filters">
+                        <select class="form-control" style="width: auto;">
+                            <option>All Projects</option>
+                            <option>Work</option>
+                            <option>Personal</option>
+                        </select>
+                        <select class="form-control" style="width: auto;">
+                            <option>Sort by Date</option>
+                            <option>Sort by Priority</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Stats Cards -->
+                <div class="stats-grid">
+                    <div class="stat-card glass-card">
+                        <div class="stat-icon bg-blue"><i class="fas fa-tasks"></i></div>
+                        <div class="stat-info">
+                            <h3>12</h3>
+                            <p>Total Tasks</p>
+                        </div>
+                    </div>
+                    <div class="stat-card glass-card">
+                        <div class="stat-icon bg-purple"><i class="fas fa-spinner"></i></div>
+                        <div class="stat-info">
+                            <h3>5</h3>
+                            <p>In Progress</p>
+                        </div>
+                    </div>
+                    <div class="stat-card glass-card">
+                        <div class="stat-icon bg-green"><i class="fas fa-check-double"></i></div>
+                        <div class="stat-info">
+                            <h3>7</h3>
+                            <p>Completed</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Progress Bar -->
+                <div class="progress-section glass-card">
+                    <div class="flex-between">
+                        <h4>Daily Goal Progress</h4>
+                        <span>70%</span>
+                    </div>
+                    <div class="progress-bar-container">
+                        <div class="progress-bar" style="width: 70%;"></div>
+                    </div>
+                </div>
+
+                <!-- Task List -->
+                <div class="task-section">
+                    <h3 class="section-title">Today's Tasks</h3>
+
+                    <div class="task-list" id="task-list">
+                        <!-- Tasks will be injected here dynamically by app.js from Firestore -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- Settings Content -->
+            <div class="settings-content d-none" id="settings-view">
+                <div class="content-header">
+                    <h1>Settings</h1>
+                    <p class="text-secondary">Manage your account and preferences.</p>
+                </div>
+
+                <div class="settings-container">
+                    <!-- Settings Navigation -->
+                    <div class="settings-nav glass-card">
+                        <ul class="nav-list" id="settings-nav-tabs">
+                            <li class="nav-item active" data-tab="account">Account</li>
+                            <li class="nav-item" data-tab="appearance">Appearance</li>
+                            <li class="nav-item" data-tab="notifications">Notifications</li>
+                            <li class="nav-item" data-tab="task-prefs">Task Preferences</li>
+                            <li class="nav-item" data-tab="productivity">Productivity</li>
+                            <li class="nav-item" data-tab="security">Security</li>
+                            <li class="nav-item" data-tab="privacy">Data & Privacy</li>
+                        </ul>
+                    </div>
+
+                    <!-- Settings Panels -->
+                    <div class="settings-panels">
+
+                        <!-- Account Panel -->
+                        <div class="settings-panel active" id="panel-account">
+                            <h3 class="panel-title">Account Profile</h3>
+
+                            <div class="setting-group glass-card">
+                                <h4>Profile Picture</h4>
+                                <div class="avatar-upload-section">
+                                    <img src="https://ui-avatars.com/api/?name=User" alt="Avatar"
+                                        id="settings-avatar-preview" class="avatar-large">
+                                    <div class="upload-controls border p-3 mt-2 rounded">
+                                        <input type="file" id="avatar-upload-input" accept="image/*"
+                                            class="form-control" style="margin-bottom: 0.5rem;">
+                                        <button class="btn btn-primary btn-sm" id="btn-upload-avatar">Upload
+                                            Photo</button>
+                                        <p class="text-secondary text-sm mt-2">Recommended: Square image, max 2MB.</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="setting-group glass-card">
+                                <h4>Personal Information</h4>
+                                <form id="form-update-profile">
+                                    <div class="form-group mb-3">
+                                        <label class="form-label">Display Name</label>
+                                        <div style="display: flex; gap: 10px;">
+                                            <input type="text" id="settings-name-input" class="form-control"
+                                                placeholder="Update your name">
+                                            <button type="submit" class="btn btn-primary">Save</button>
+                                        </div>
+                                    </div>
+                                </form>
+                                <form id="form-update-email" style="margin-top: 1.5rem;">
+                                    <div class="form-group">
+                                        <label class="form-label">Email Address</label>
+                                        <div style="display: flex; gap: 10px;">
+                                            <input type="email" id="settings-email-input" class="form-control"
+                                                placeholder="Update your email">
+                                            <button type="submit" class="btn btn-outline">Update Email</button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+
+                        <!-- Appearance Panel -->
+                        <div class="settings-panel d-none" id="panel-appearance">
+                            <h3 class="panel-title">Appearance</h3>
+                            <div class="setting-group glass-card flex-between">
+                                <div>
+                                    <h4>Dark Mode</h4>
+                                    <p class="text-secondary text-sm">Toggle between light and dark themes.</p>
+                                </div>
+                                <label class="toggle-switch">
+                                    <input type="checkbox" id="pref-dark-mode">
+                                    <span class="slider"></span>
+                                </label>
+                            </div>
+                            <div class="setting-group glass-card">
+                                <h4>Accent Color</h4>
+                                <p class="text-secondary text-sm mb-3">Choose your primary theme color.</p>
+                                <div class="color-picker flex" id="accent-color-picker"
+                                    style="gap: 15px; display: flex;">
+                                    <div class="color-swatch bg-blue active" data-color="blue"
+                                        style="width: 30px; height: 30px; border-radius: 50%; cursor: pointer;"></div>
+                                    <div class="color-swatch bg-purple" data-color="purple"
+                                        style="width: 30px; height: 30px; border-radius: 50%; cursor: pointer;"></div>
+                                    <div class="color-swatch bg-indigo" data-color="indigo"
+                                        style="width: 30px; height: 30px; border-radius: 50%; cursor: pointer;"></div>
+                                    <div class="color-swatch bg-green" data-color="green"
+                                        style="width: 30px; height: 30px; border-radius: 50%; cursor: pointer;"></div>
+                                    <div class="color-swatch bg-orange" data-color="orange"
+                                        style="width: 30px; height: 30px; border-radius: 50%; cursor: pointer;"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Notifications Panel -->
+                        <div class="settings-panel d-none" id="panel-notifications">
+                            <h3 class="panel-title">Notifications</h3>
+                            <div class="setting-group glass-card">
+                                <div class="flex-between mb-3">
+                                    <div>
+                                        <h4>Email Reminders</h4>
+                                        <p class="text-secondary text-sm">Receive emails for upcoming tasks.</p>
+                                    </div>
+                                    <label class="toggle-switch">
+                                        <input type="checkbox" id="pref-email-reminders">
+                                        <span class="slider"></span>
+                                    </label>
+                                </div>
+                                <div class="flex-between mb-3">
+                                    <div>
+                                        <h4>Daily Summary</h4>
+                                        <p class="text-secondary text-sm">Get a morning summary of your day.</p>
+                                    </div>
+                                    <label class="toggle-switch">
+                                        <input type="checkbox" id="pref-daily-summary">
+                                        <span class="slider"></span>
+                                    </label>
+                                </div>
+                                <div class="flex-between">
+                                    <div>
+                                        <h4>Due Date Alerts</h4>
+                                        <p class="text-secondary text-sm">Get notified when a task is due soon.</p>
+                                    </div>
+                                    <label class="toggle-switch">
+                                        <input type="checkbox" id="pref-due-alerts" checked>
+                                        <span class="slider"></span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Task Preferences Panel -->
+                        <div class="settings-panel d-none" id="panel-task-prefs">
+                            <h3 class="panel-title">Task Preferences</h3>
+                            <div class="setting-group glass-card">
+                                <div class="grid-2-col">
+                                    <div class="form-group">
+                                        <label class="form-label">Default Priority</label>
+                                        <select id="pref-default-priority" class="form-control">
+                                            <option value="Low">Low</option>
+                                            <option value="Medium" selected>Medium</option>
+                                            <option value="High">High</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="form-label">Default Category</label>
+                                        <select id="pref-default-category" class="form-control">
+                                            <option value="Personal" selected>Personal</option>
+                                            <option value="Work">Work</option>
+                                            <option value="Study">Study</option>
+                                            <option value="Fitness">Fitness</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="flex-between mt-4">
+                                    <div>
+                                        <h4>Confirm Deletion</h4>
+                                        <p class="text-secondary text-sm">Ask for confirmation before deleting a task.
+                                        </p>
+                                    </div>
+                                    <label class="toggle-switch">
+                                        <input type="checkbox" id="pref-confirm-delete" checked>
+                                        <span class="slider"></span>
+                                    </label>
+                                </div>
+                                <div class="flex-between mt-3">
+                                    <div>
+                                        <h4>Show Completed Tasks</h4>
+                                        <p class="text-secondary text-sm">Keep completed tasks visible in the list.</p>
+                                    </div>
+                                    <label class="toggle-switch">
+                                        <input type="checkbox" id="pref-show-completed" checked>
+                                        <span class="slider"></span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Productivity Panel -->
+                        <div class="settings-panel d-none" id="panel-productivity">
+                            <h3 class="panel-title">Productivity Tracking</h3>
+                            <div class="setting-group glass-card">
+                                <div class="form-group mb-4">
+                                    <label class="form-label">Daily Task Goal</label>
+                                    <div style="display: flex; gap: 1rem; align-items: center;">
+                                        <input type="number" id="pref-daily-goal" class="form-control" value="5" min="1"
+                                            max="50" style="width: 100px;">
+                                        <span class="text-secondary text-sm">Tasks per day</span>
+                                    </div>
+                                </div>
+                                <div class="flex-between mb-3">
+                                    <div>
+                                        <h4>Enable Streak Tracking</h4>
+                                        <p class="text-secondary text-sm">Track how many consecutive days you hit your
+                                            goal.</p>
+                                    </div>
+                                    <label class="toggle-switch">
+                                        <input type="checkbox" id="pref-streak-tracking" checked>
+                                        <span class="slider"></span>
+                                    </label>
+                                </div>
+                                <div class="flex-between">
+                                    <div>
+                                        <h4>Weekly Report</h4>
+                                        <p class="text-secondary text-sm">Show a productivity chart at the end of the
+                                            week.</p>
+                                    </div>
+                                    <label class="toggle-switch">
+                                        <input type="checkbox" id="pref-weekly-report">
+                                        <span class="slider"></span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Security Panel -->
+                        <div class="settings-panel d-none" id="panel-security">
+                            <h3 class="panel-title">Security Settings</h3>
+                            <div class="setting-group glass-card">
+                                <h4>Change Password</h4>
+                                <form id="form-update-password">
+                                    <div class="form-group">
+                                        <input type="password" id="settings-new-password" class="form-control"
+                                            placeholder="New Password" required style="margin-bottom: 1rem;">
+                                    </div>
+                                    <div class="form-group flex-between">
+                                        <input type="password" id="settings-confirm-password" class="form-control"
+                                            placeholder="Confirm New Password" required
+                                            style="flex: 1; margin-right: 1rem;">
+                                        <button type="submit" class="btn btn-primary">Update</button>
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="setting-group glass-card mt-3">
+                                <h4>Active Sessions</h4>
+                                <p class="text-secondary text-sm mb-3">Logged in as <strong
+                                        id="security-current-email">...</strong></p>
+                                <button class="btn btn-outline" id="btn-logout-devices">Log out from all
+                                    devices</button>
+                            </div>
+                        </div>
+
+                        <!-- Data & Privacy Panel -->
+                        <div class="settings-panel d-none" id="panel-privacy">
+                            <h3 class="panel-title">Data & Privacy</h3>
+
+                            <div class="setting-group glass-card mb-3">
+                                <h4>Export Your Data</h4>
+                                <p class="text-secondary text-sm mb-3">Download a JSON file containing all your tasks
+                                    and account preferences.</p>
+                                <button class="btn btn-primary" id="btn-export-data"><i class="fas fa-download"></i>
+                                    Download Data</button>
+                            </div>
+
+                            <div class="setting-group glass-card border-danger"
+                                style="border: 1px solid var(--danger-color);">
+                                <h4 class="text-danger" style="color: var(--danger-color);">Danger Zone</h4>
+                                <p class="text-secondary text-sm mb-3">These actions are permanent and cannot be undone.
+                                </p>
+                                <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+                                    <button class="btn btn-outline"
+                                        style="border-color: var(--danger-color); color: var(--danger-color);"
+                                        id="btn-clear-completed">Clear Completed Tasks</button>
+                                    <button class="btn btn-outline"
+                                        style="border-color: var(--danger-color); color: var(--danger-color);"
+                                        id="btn-delete-all-tasks">Delete All Tasks</button>
+                                    <button class="btn btn-primary"
+                                        style="background-color: var(--danger-color); border-color: var(--danger-color);"
+                                        id="btn-delete-account">Delete Account</button>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Floating Action Button -->
+    <button class="fab" id="add-task-btn" aria-label="Add new task">
+        <i class="fas fa-plus"></i>
+    </button>
+
+    <!-- Task Creation Modal -->
+    <div class="modal-overlay" id="task-modal">
+        <div class="modal glass-panel">
+            <div class="modal-header flex-between">
+                <h2>Create New Task</h2>
+                <button class="btn btn-icon btn-text" id="close-modal"><i class="fas fa-times"></i></button>
+            </div>
+            <form id="new-task-form">
+                <div class="form-group">
+                    <label class="form-label">Task Title</label>
+                    <input type="text" id="task-title-input" class="form-control" placeholder="What needs to be done?"
+                        required>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Description</label>
+                    <textarea id="task-desc-input" class="form-control" rows="3"
+                        placeholder="Add some details..."></textarea>
+                </div>
+                <div class="grid-2-col">
+                    <div class="form-group">
+                        <label class="form-label">Due Date</label>
+                        <input type="date" id="task-date-input" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Time</label>
+                        <input type="time" id="task-time-input" class="form-control">
+                    </div>
+                </div>
+                <div class="grid-2-col">
+                    <div class="form-group">
+                        <label class="form-label">Category</label>
+                        <select id="task-category-input" class="form-control">
+                            <option>Work</option>
+                            <option>Personal</option>
+                            <option>Study</option>
+                            <option>Fitness</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Priority</label>
+                        <select id="task-priority-input" class="form-control">
+                            <option>Low</option>
+                            <option>Medium</option>
+                            <option>High</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="modal-footer flex-right mt-4">
+                    <button type="button" class="btn btn-outline" id="cancel-task">Cancel</button>
+                    <button type="submit" class="btn btn-primary">Create Task</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Background Decoration Bubbles -->
+    <div class="bg-shape shape-1" style="opacity: 0.5;"></div>
+    <div class="bg-shape shape-2" style="opacity: 0.5;"></div>
+
+    <script type="module" src="firebase-config.js"></script>
+    <script src="theme.js"></script>
+    <script type="module" src="app.js"></script>
+    <script type="module" src="settings.js"></script>
+</body>
+
+</html>
